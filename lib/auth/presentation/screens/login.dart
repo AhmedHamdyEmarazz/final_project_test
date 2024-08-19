@@ -9,7 +9,8 @@ import 'package:jobseque/auth/domain/auth_cubit.dart';
 import 'package:jobseque/auth/domain/auth_states.dart';
 import 'package:jobseque/auth/models/customTextField.dart';
 import 'package:jobseque/auth/models/user_model.dart';
-import 'package:jobseque/auth/presentation/screens/jobTitle_screen.dart';
+import 'package:jobseque/auth/presentation/screens/forgot_password_screen.dart';
+import 'package:jobseque/auth/presentation/screens/signUP.dart';
 import 'package:jobseque/auth/presentation/screens/splashScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -59,6 +60,7 @@ class _LoginState extends State<Login> {
     });
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           actions: <Widget>[
             Container(
               margin: const EdgeInsets.only(right: 10),
@@ -165,7 +167,7 @@ class _LoginState extends State<Login> {
                             width: size.width * 0.5,
                             child: ListTile(
                                 horizontalTitleGap: 0,
-                                title: Text(
+                                title: const Text(
                                   'remember me',
                                   style: TextStyle(fontSize: 14),
                                 ),
@@ -183,9 +185,18 @@ class _LoginState extends State<Login> {
                                   },
                                 )),
                           ),
-                          Text(
-                            'Forgot password?',
-                            style: TextStyle(fontSize: 16, color: Colors.blue),
+                          InkWell(
+                            onTap: () {
+                              Navigator.pushReplacement(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return const ForgotPasswordScreen();
+                              }));
+                            },
+                            child: const Text(
+                              'Forgot password?',
+                              style:
+                                  TextStyle(fontSize: 16, color: Colors.blue),
+                            ),
                           ),
                         ],
                       )),
@@ -194,15 +205,15 @@ class _LoginState extends State<Login> {
                   ),
                   TextButton(
                     onPressed: () {
-                      // setState(() {
-                      //   emailController.clear();
-                      //   nameController.clear();
-                      //   passwordController.clear();
-                      // });
+                      setState(() {
+                        emailController.clear();
+                        nameController.clear();
+                        passwordController.clear();
+                      });
 
                       Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) {
-                        return const JobtitleScreen(); //todo: return the correct widget
+                        return const SignUp(); //todo: return the correct widget
                       }));
                     },
                     child: RichText(

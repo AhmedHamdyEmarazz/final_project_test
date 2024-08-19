@@ -78,6 +78,7 @@ class _SignUpState extends State<SignUp> {
     });
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           actions: <Widget>[
             Container(
               margin: const EdgeInsets.only(right: 10),
@@ -195,13 +196,13 @@ class _SignUpState extends State<SignUp> {
                   ),
                   TextButton(
                     onPressed: () {
-                      // setState(() {
-                      //   emailController.clear();
-                      //   nameController.clear();
-                      //   passwordController.clear();
-                      // });
+                      setState(() {
+                        emailController.clear();
+                        nameController.clear();
+                        passwordController.clear();
+                      });
 
-                      Navigator.push(context,
+                      Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) {
                         return const Login(); //todo: return the correct widget
                       }));

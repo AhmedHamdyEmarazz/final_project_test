@@ -22,6 +22,5 @@ class AuthReposiory {
     prefs.setString('token', (response.data['token']));
     print(response.data['token']);
     print(((response.data['user'] as Map)['name']));
-    print('https://github.com/AhmedHamdyEmarazz/flutter.git');
   }
 }
