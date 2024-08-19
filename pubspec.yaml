@@ -5,12 +5,18 @@ version: 0.1.0
 
 environment:
   sdk: '>=3.4.0 <4.0.0'
-
 dependencies:
-  dio: ^5.5.0+1
   flutter:
-    sdk: flutter
+   sdk: flutter
   flutter_bloc: ^8.1.6
+  dio: ^5.5.0+1
+  flutter_onboarding_slider: ^1.0.11
+  google_fonts: ^6.2.1
+  shared_preferences: ^2.3.2
+  intl_phone_field: ^3.2.0
+  http: ^1.2.2
+  animated_text_kit: ^4.2.2
+  rich_typewriter: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -19,3 +25,25 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+      - assets/Spashcreen.png   
+      - assets/Logo.png   
+      - assets/Group.png
+      - assets/image 8.png
+      - assets/Discord Logo.png
+      - assets/Twitter Logo.png
+      - assets/Vector 64.png
+      - assets/Vector 63.png
+      - assets/Logo-2.png   
+      - assets/Button-2.png   
+      - assets/Button-3.png
+      - assets/Spectrum Logo.png
+      - assets/image 9.png
+      - assets/Ellipse 797.png
+      - assets/Success Account Ilustration.png
+
+
+  # fonts:
+  #    - family: Tajawal
+  #      fonts:
+  #        - asset: fonts/Tajawal-Regular.ttf
