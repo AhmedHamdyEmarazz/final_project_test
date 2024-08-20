@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jobseque/auth/presentation/screens/login.dart';
 
 class SuccessfulpasswordchangingScreen extends StatefulWidget {
   const SuccessfulpasswordchangingScreen({super.key});
@@ -90,7 +91,10 @@ class _SuccessfulpasswordchangingScreenState
                   elevation: WidgetStatePropertyAll<double>(0),
                   backgroundColor: WidgetStatePropertyAll<Color>(Colors.blue)),
               onPressed: () {
-                // Navigator.of(context).push(_createRoute());
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) {
+                  return const Login();
+                }));
               },
               child: const Text(
                 'Continue',

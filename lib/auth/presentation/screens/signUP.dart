@@ -8,7 +8,6 @@ import 'package:jobseque/auth/data/auth_ednpoints.dart';
 import 'package:jobseque/auth/domain/auth_cubit.dart';
 import 'package:jobseque/auth/domain/auth_states.dart';
 import 'package:jobseque/auth/models/customTextField.dart';
-import 'package:jobseque/auth/models/user_model.dart';
 import 'package:jobseque/auth/presentation/screens/jobTitle_screen.dart';
 import 'package:jobseque/auth/presentation/screens/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -28,7 +27,7 @@ bool red = false;
 bool emailnotempty = false;
 bool namenotempty = false;
 bool passnotempty = false;
-List<UserModel> users = [];
+// List<UserModel> users = [];
 
 class _SignUpState extends State<SignUp> {
   // void reset() {
@@ -204,7 +203,7 @@ class _SignUpState extends State<SignUp> {
 
                       Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) {
-                        return const Login(); //todo: return the correct widget
+                        return const Login();
                       }));
                     },
                     child: RichText(

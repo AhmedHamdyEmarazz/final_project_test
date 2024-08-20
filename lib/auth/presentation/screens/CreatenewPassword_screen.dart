@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jobseque/auth/models/customTextField.dart';
-import 'package:jobseque/auth/models/user_model.dart';
 import 'package:jobseque/auth/presentation/screens/login.dart';
 import 'package:jobseque/auth/presentation/screens/successfulPasswordChanging_screen.dart';
 
@@ -17,7 +16,7 @@ final passwordController = TextEditingController();
 bool val = false;
 bool emailnotempty = false;
 bool passnotempty = false;
-List<UserModel> users = [];
+// List<UserModel> users = [];
 bool red = false;
 
 class _CreatenewpasswordScreenState extends State<CreatenewpasswordScreen> {
@@ -102,7 +101,7 @@ class _CreatenewpasswordScreenState extends State<CreatenewpasswordScreen> {
                       controller: passwordController,
                       hintText: 'password',
                       validator: (pass) {
-                        if (pass.toString().characters.length >= 6) {
+                        if (pass.toString().characters.length >= 8) {
                           return null;
                         } else {
                           return 'more than or equal six characters';
@@ -137,7 +136,7 @@ class _CreatenewpasswordScreenState extends State<CreatenewpasswordScreen> {
                       controller: confirmPasswordController,
                       hintText: 'Confirm password',
                       validator: (pass) {
-                        if (pass.toString().characters.length >= 6) {
+                        if (pass.toString().characters.length >= 8) {
                           return null;
                         } else {
                           return 'more than or equal six characters';
@@ -197,11 +196,38 @@ class _CreatenewpasswordScreenState extends State<CreatenewpasswordScreen> {
                     elevation: WidgetStatePropertyAll<double>(0),
                     backgroundColor:
                         WidgetStatePropertyAll<Color>(Colors.blue)),
-                onPressed: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) {
-                    return const SuccessfulpasswordchangingScreen(); //todo: change password functions and checking password matching
-                  }));
+                onPressed: () async {
+                  _formkey.currentState!.validate();
+                  if (passwordController.text ==
+                          confirmPasswordController.text &&
+                      _formkey.currentState!.validate()) {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text('User created'),
+                      backgroundColor: Colors.green,
+                    ));
+                    Future.delayed(const Duration(seconds: 3));
+                    setState(() {
+                      emailController.clear();
+                      nameController.clear();
+                      passwordController.clear();
+                    });
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const SuccessfulpasswordchangingScreen();
+                    }));
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(passwordController.text !=
+                              confirmPasswordController.text
+                          ? 'password not match'
+                          : 'error'),
+                      backgroundColor: Colors.red,
+                    ));
+                  }
+                  // Navigator.pushReplacement(context,
+                  //     MaterialPageRoute(builder: (context) {
+                  //   return const SuccessfulpasswordchangingScreen(); //todo: change password functions and checking password matching
+                  // }));
                 },
                 child: const Text(
                   'Request password reset',

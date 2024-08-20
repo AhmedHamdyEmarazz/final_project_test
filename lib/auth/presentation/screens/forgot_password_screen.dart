@@ -98,7 +98,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           TextButton(
             onPressed: () {
               setState(() {
-                emailController.clear();
+                passwordController.clear();
               });
 
               Navigator.pushReplacement(context,
@@ -138,7 +138,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     elevation: WidgetStatePropertyAll<double>(0),
                     backgroundColor:
                         WidgetStatePropertyAll<Color>(Colors.blue)),
-                onPressed: () {
+                onPressed: () async {
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) {
                     return const CheckyouremalScreen(); //todo: return the correct widget

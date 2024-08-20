@@ -8,7 +8,6 @@ import 'package:jobseque/auth/data/auth_ednpoints.dart';
 import 'package:jobseque/auth/domain/auth_cubit.dart';
 import 'package:jobseque/auth/domain/auth_states.dart';
 import 'package:jobseque/auth/models/customTextField.dart';
-import 'package:jobseque/auth/models/user_model.dart';
 import 'package:jobseque/auth/presentation/screens/forgot_password_screen.dart';
 import 'package:jobseque/auth/presentation/screens/signUP.dart';
 import 'package:jobseque/auth/presentation/screens/splashScreen.dart';
@@ -26,7 +25,7 @@ final passwordController = TextEditingController();
 bool val = false;
 bool emailnotempty = false;
 bool passnotempty = false;
-List<UserModel> users = [];
+// List<UserModel> users = [];
 
 class _LoginState extends State<Login> {
   @override
